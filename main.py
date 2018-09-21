@@ -47,5 +47,12 @@ form = """
 def index():
     return form
 
+@app.route("/", methods=['POST'])
+def encrypt():
+  text = request.form['text']
+  rot = int(request.form['rot'])
+  ciphertext = "<h1>"+ rotate_string(text,rot) +"<h1>"
+  return ciphertext
+
 
 app.run()   
