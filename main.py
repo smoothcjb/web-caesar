@@ -1,10 +1,14 @@
+from caesar import rotate_string
 from flask import Flask, request
+
 app = Flask(__name__)
+
 app.config['DEBUG'] = True
 
 form = """
 
 <!DOCTYPE html>
+  <html>
    <head> 
      <style>
        form{
@@ -22,19 +26,16 @@ form = """
      width: 540px;
      height: 120px;    
    }
-   </style>
+     </style>
    </head>
-   <body>
-   <!--create your form here-->
-   <form action="/" method="post">
-   <label><strong>Rotate by:</strong><input type="text" name="rot" value="0"/></label> 
-   <textarea name="text"></textarea>
-   <input type="submit"/>
-   </form>
-
-   </body>
-   
-
+     <body>
+       <!--create your form here-->
+     <form action="/" method="post">
+         <label><strong>Rotate by:</strong><input type="text" name="rot" value="0"/></label> 
+         <textarea name="text"></textarea>
+        <input type="submit"/>
+     </form>
+     </body>
    </html)
  
  <input type="submit"/>
@@ -45,8 +46,6 @@ form = """
 @app.route("/")
 def index():
     return form
-
-
 
 
 app.run()   
